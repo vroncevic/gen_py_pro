@@ -1,0 +1,13 @@
+${HASH}" @info   ${GEN_PY_PRO_TOOL} ${GEN_PY_PRO_VERSION}"
+${HASH}" @author ${AUTHOR}"
+${HASH}" @brief  Process this file with automake to produce Makefile.in."
+
+${HASH}" The main script"
+"bin_SCRIPTS = ${PNAME}.py"
+
+${HASH}" Directory where .class files will be installed"
+"${PNAME}dir = \\\$(pythondir)/${PNAME}"
+
+"${PNAME}_PYTHON = ${BSLASH}"
+"${TAB}${PNAME}.py"
+
