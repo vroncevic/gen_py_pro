@@ -47,7 +47,8 @@ declare -A PB_STRUCTURE=(
 )
 
 TOOL_DBG="false"
-TOOL_LOG="true"
+TOOL_LOG="false"
+TOOL_NOTIFY="false"
 
 #
 # @brief   Main function
@@ -87,6 +88,8 @@ function __gen_py_pro() {
 			__info_debug_message_end "$MSG" "$FUNC" "$GEN_PY_PRO_TOOL"
 			exit 129
 		fi
+		TOOL_LOG=${config_gen_py_pro[LOGGING]}
+		TOOL_DBG=${config_gen_py_pro[DEBUGGING]}
 		MSG="Generate project structure [${PNAME}]"
 		__info_debug_message "$MSG" "$FUNC" "$GEN_PY_PRO_TOOL"
 		if [ -d "${PNAME}/" ]; then
