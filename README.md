@@ -1,4 +1,4 @@
-Generate python project (Bash script).
+Generate Python Project (Bash script).
 ================================================================================
 
 The README is used to introduce the modules and provide instructions on

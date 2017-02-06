@@ -2,7 +2,7 @@ ${HASH}" @info   ${GEN_PY_PRO_TOOL} ${GEN_PY_PRO_VERSION}"
 ${HASH}" @author ${AUTHOR}"
 ${HASH}" @brief  Process this file with automake to produce Makefile.in."
 
-"SUBDIRS = src "
+"SUBDIRS = src"
 
 "dist_doc_DATA = ${BSLASH}"
 "${TAB}README ${BSLASH}"
