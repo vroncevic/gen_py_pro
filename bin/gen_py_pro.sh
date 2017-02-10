@@ -67,8 +67,8 @@ TOOL_NOTIFY="false"
 # __gen_py_pro "rtp"
 #
 function __gen_py_pro() {
-	local PNAME=$1
-	if [ -n "${PNAME}" ]; then
+	local PN=$1
+	if [ -n "${PN}" ]; then
 		local FUNC=${FUNCNAME[0]} MSG="None" STATUS_CONF STATUS_CONF_UTIL STATUS
 		MSG="Loading basic and util configuration!"
 		__info_debug_message "$MSG" "$FUNC" "$GEN_PY_PRO_TOOL"
@@ -92,19 +92,22 @@ function __gen_py_pro() {
 		TOOL_LOG=${config_gen_py_pro[LOGGING]}
 		TOOL_DBG=${config_gen_py_pro[DEBUGGING]}
 		TOOL_NOTIFY=${config_gen_py_pro[EMAILING]}
-		MSG="Generating project structure [${PNAME}]"
+		MSG="Generating project structure!"
 		__info_debug_message "$MSG" "$FUNC" "$GEN_PY_PRO_TOOL"
-		if [ -d "${PNAME}/" ]; then
-			MSG="Project structure already exist [${PNAME}]!"
+		if [ -d "${PN}/" ]; then
+			MSG="Project structure already exist [${PN}]!"
 			__info_debug_message "$MSG" "$FUNC" "$GEN_PY_PRO_TOOL"
 			MSG="Force exit!"
 			__info_debug_message "$MSG" "$FUNC" "$GEN_PY_PRO_TOOL"
 			exit 130
 		fi
-		MSG="Generating directory [${PNAME}/]"
+		local AN=${config_gen_py_pro_util[AUTHOR_NAME]}
+		local AE=${config_gen_py_pro_util[AUTHOR_EMAIL]}
+		local V=${config_gen_py_pro_util[VERSION]}
+		MSG="Generating directory [${PN}/]"
 		__info_debug_message "$MSG" "$FUNC" "$GEN_PY_PRO_TOOL"
-		mkdir "${PNAME}/"
-		local SRC="${PNAME}/src"
+		mkdir "${PN}/"
+		local SRC="${PN}/src"
 		MSG="Generating directory [${SRC}/]"
 		__info_debug_message "$MSG" "$FUNC" "$GEN_PY_PRO_TOOL"
 		mkdir "${SRC}/"
@@ -117,13 +120,13 @@ function __gen_py_pro() {
 			__info_debug_message_end "$MSG" "$FUNC" "$GEN_PY_PRO_TOOL"
 			exit 131
 		fi
-		local HASH="#" TAB="	" DATE=`date` BSLASH="\\"
-		local ASHT=${project_set[AUTOGEN_SH]} ASHF="${PNAME}/autogen.sh"
+		local H="#" DATE=`date` BSL="\\" T="	"
+		local ASHT=${project_set[AUTOGEN_SH]} ASHF="${PN}/autogen.sh"
 		local ASHC=$(cat "${GEN_PY_PRO_HOME}/conf/${ASHT}")
 		MSG="Generating file [${ASHF}]"
 		__info_debug_message "$MSG" "$FUNC" "$GEN_PY_PRO_TOOL"
 		echo -e "${ASHC}" > "${ASHF}"
-		local CT=${project_set[CONFIGURE_AC]} CF="${PNAME}/configure.ac" CL
+		local CT=${project_set[CONFIGURE_AC]} CF="${PN}/configure.ac" CL
 		local CTF="${GEN_PY_PRO_HOME}/conf/${CT}"
 		MSG="Generating file [${CF}]"
 		__info_debug_message "$MSG" "$FUNC" "$GEN_PY_PRO_TOOL"
@@ -131,7 +134,7 @@ function __gen_py_pro() {
 		do
 			eval echo "${CL}" >> ${CF}
 		done < ${CTF}
-		local MRT=${project_set[MAKEFILE_AMR]} MRF="${PNAME}/Makefile.am" MRL
+		local MRT=${project_set[MAKEFILE_AMR]} MRF="${PN}/Makefile.am" MRL
 		local MRTF="${GEN_PY_PRO_HOME}/conf/${MRT}"
 		MSG="Generating file [${MRF}]"
 		__info_debug_message "$MSG" "$FUNC" "$GEN_PY_PRO_TOOL"
@@ -147,7 +150,7 @@ function __gen_py_pro() {
 		do
 			eval echo "${MSL}" >> ${MSF}
 		done < ${MSTF}
-		local PYT=${project_set[PY]} PYF="${SRC}/${PNAME}.py" PYL
+		local PYT=${project_set[PY]} PYF="${SRC}/${PN}.py" PYL
 		local PYTF="${GEN_PY_PRO_HOME}/conf/${PYT}"
 		MSG="Generating file [${PYF}]"
 		__info_debug_message "$MSG" "$FUNC" "$GEN_PY_PRO_TOOL"
@@ -155,17 +158,26 @@ function __gen_py_pro() {
 		do
 			eval echo "${PYL}" >> ${PYF}
 		done < ${PYTF}
-		local CLT=${project_set[CHANGELOG]} CLF="${PNAME}/ChangeLog"
-		local CLC=$(cat "${GEN_PY_PRO_HOME}/conf/${CLT}")
+		local PYET=${project_set[PY_EDIT]}
+		local PYETF=$(cat "${GEN_PY_PRO_HOME}/conf/${PYET}")
+		local PYEF="${SRC}/.editorconfig"
+		MSG="Generating file [${PYEF}]"
+		__info_debug_message "$MSG" "$FUNC" "$GEN_PY_PRO_TOOL"
+		echo -e "${PYETF}" > "${PYEF}"
+		local CLT=${project_set[CHANGELOG]} CLF="${PN}/ChangeLog"
+		local CLC="${GEN_PY_PRO_HOME}/conf/${CLT}"
 		MSG="Generating file [${CLF}]"
 		__info_debug_message "$MSG" "$FUNC" "$GEN_PY_PRO_TOOL"
-		echo -e "${CLC}" > "${CLF}"
-		local COT=${project_set[COPYING]} COF="${PNAME}/COPYING"
+		while read CLC
+		do
+			eval echo "${CLC}" > ${CLF}
+		done < ${CLC}
+		local COT=${project_set[COPYING]} COF="${PN}/COPYING"
 		local COC=$(cat "${GEN_PY_PRO_HOME}/conf/${COT}")
 		MSG="Generating file [${COF}]"
 		__info_debug_message "$MSG" "$FUNC" "$GEN_PY_PRO_TOOL"
 		echo -e "${COC}" > "${COF}"
-		local AUT=${project_set[AUTHORS]} AUF="${PNAME}/AUTHORS" AUL
+		local AUT=${project_set[AUTHORS]} AUF="${PN}/AUTHORS" AUL
 		local AUTF="${GEN_PY_PRO_HOME}/conf/${AUT}"
 		MSG="Generating file [${AUF}]"
 		__info_debug_message "$MSG" "$FUNC" "$GEN_PY_PRO_TOOL"
@@ -173,8 +185,8 @@ function __gen_py_pro() {
 		do
 			eval echo "${AUL}" >> ${AUF}
 		done < ${AUTF}
-		local NT=${project_set[NEWS]} NF="${PNAME}/NEWS" NL
-		local FIRST_NEWS="Project created ${DATE}"
+		local NT=${project_set[NEWS]} NF="${PN}/NEWS" NL
+		local FN="Project created ${DATE}"
 		local NTF="${GEN_PY_PRO_HOME}/conf/${NT}"
 		MSG="Generating file [${NF}]"
 		__info_debug_message "$MSG" "$FUNC" "$GEN_PY_PRO_TOOL"
@@ -182,8 +194,8 @@ function __gen_py_pro() {
 		do
 			eval echo "${NL}" >> ${NF}
 		done < ${NTF}
-		local RT=${project_set[README]} RF="${PNAME}/README" RL
-		local RMSG="${HASH} Readme section" RTF="${GEN_PY_PRO_HOME}/conf/${RT}"
+		local RT=${project_set[README]} RF="${PN}/README" RL
+		local RMSG="${H} Readme section" RTF="${GEN_PY_PRO_HOME}/conf/${RT}"
 		MSG="Generating file [${RF}]"
 		__info_debug_message "$MSG" "$FUNC" "$GEN_PY_PRO_TOOL"
 		while read RL
@@ -194,11 +206,11 @@ function __gen_py_pro() {
 		local GRPID=${config_gen_py_pro_util[GID]}
 		MSG="Set owner!"
 		__info_debug_message "$MSG" "$FUNC" "$GEN_PY_PRO_TOOL"
-		eval "chown -R ${USRID}.${GRPID} ${PNAME}/"
+		eval "chown -R ${USRID}.${GRPID} ${PN}/"
 		MSG="Set permission!"
 		__info_debug_message "$MSG" "$FUNC" "$GEN_PY_PRO_TOOL"
-		eval "chmod -R 700 ${PNAME}/"
-		MSG="Generated project ${PNAME}"
+		eval "chmod -R 700 ${PN}/"
+		MSG="Generated project ${PN}"
 		GEN_PY_PRO_LOGGING[LOG_MSGE]="$MSG"
 		GEN_PY_PRO_LOGGING[LOG_FLAG]="info"
 		__logging GEN_PY_PRO_LOGGING
@@ -207,7 +219,7 @@ function __gen_py_pro() {
 		__check_tool "${TREE}"
 		STATUS=$?
 		if [ $STATUS -eq $SUCCESS ]; then
-			eval "${TREE} -L 3 ${PNAME}/"
+			eval "${TREE} -L 3 ${PN}/"
 		fi
 		exit 0
 	fi

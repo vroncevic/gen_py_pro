@@ -1,6 +1,6 @@
 "dnl"
 "dnl @info   ${GEN_PY_PRO_TOOL} ${GEN_PY_PRO_VERSION}"
-"dnl @author ${AUTHOR}"
+"dnl @author ${AN} ${AE}"
 "dnl @brief  Process this file with autoconf to produce a configure script."
 "dnl"
 "AC_INIT(${PNAME}, 0.1)"

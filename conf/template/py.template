@@ -1,21 +1,21 @@
-${HASH}"!/usr/bin/env python"
-${HASH}" -*- Mode: Python; coding: utf-8; indent-tabs-mode: t; c-basic-offset: 4; tab-width: 4 -*- "
-${HASH}
-${HASH}" ${PNAME}.py"
-${HASH}" Copyright (C) 2017 ${AUTHOR}"
-${HASH}
-${HASH}" ${PNAME} is free software: you can redistribute it and/or modify it"
-${HASH}" under the terms of the GNU General Public License as published by the"
-${HASH}" Free Software Foundation, either version 3 of the License, or"
-${HASH}" (at your option) any later version."
-${HASH}
-${HASH}" ${PNAME} is distributed in the hope that it will be useful, but"
-${HASH}" WITHOUT ANY WARRANTY; without even the implied warranty of"
-${HASH}" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE."
-${HASH}" See the GNU General Public License for more details."
-${HASH}
-${HASH}" You should have received a copy of the GNU General Public License along"
-${HASH}" with this program.  If not, see <http://www.gnu.org/licenses/>."
+${H}"!/usr/bin/env python"
+${H}" -*- Mode: Python; coding: utf-8; indent-tabs-mode: t; c-basic-offset: 4; tab-width: 4 -*- "
+${H}
+${H}" ${PN}.py"
+${H}" Copyright (C) 2017 ${AN} ${AE}"
+${H}
+${H}" ${PN} is free software: you can redistribute it and/or modify it"
+${H}" under the terms of the GNU General Public License as published by the"
+${H}" Free Software Foundation, either version 3 of the License, or"
+${H}" (at your option) any later version."
+${H}
+${H}" ${PN} is distributed in the hope that it will be useful, but"
+${H}" WITHOUT ANY WARRANTY; without even the implied warranty of"
+${H}" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE."
+${H}" See the GNU General Public License for more details."
+${H}
+${H}" You should have received a copy of the GNU General Public License along"
+${H}" with this program.  If not, see <http://www.gnu.org/licenses/>."
 
 "print \\\"Hello World!\\\""
 
