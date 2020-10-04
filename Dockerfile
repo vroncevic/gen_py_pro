@@ -22,7 +22,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -yq --no-install-recommends \
  unzip \
  ca-certificates \
  openssl \
- python
+ python \
  python-pip
 
 RUN wget https://github.com/vroncevic/sh_util/archive/v1.0.0.zip
