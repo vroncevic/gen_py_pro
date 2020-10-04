@@ -27,7 +27,7 @@ other information that should be provided before the modules are installed.
 
 ### Installation
 
-Navigate to release [page](https://github.com/vroncevic/gen_py_pro/releases) download and extract release archive.
+Navigate to release **[page](https://github.com/vroncevic/gen_py_pro/releases)** download and extract release archive.
 
 To install **gen_py_pro** type the following:
 
