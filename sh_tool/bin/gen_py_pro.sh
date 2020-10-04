@@ -27,11 +27,11 @@ GEN_PY_PRO_CFG=${GEN_PY_PRO_HOME}/conf/${GEN_PY_PRO_TOOL}.cfg
 GEN_PY_PRO_UTIL_CFG=${GEN_PY_PRO_HOME}/conf/${GEN_PY_PRO_TOOL}_util.cfg
 GEN_PY_PRO_LOG=${GEN_PY_PRO_HOME}/log
 
-declare -A GEN_PY_PRO_USAGE=(
-    [USAGE_TOOL]="${GEN_PY_PRO_TOOL}"
-    [USAGE_ARG1]="[PROJECT NAME] Python App Project Name"
-    [USAGE_EX_PRE]="# Generating Python App Project"
-    [USAGE_EX]="${GEN_PY_PRO_TOOL} RCP"
+declare -A GEN_PY_PRO_Usage=(
+    [Usage_TOOL]="${GEN_PY_PRO_TOOL}"
+    [Usage_ARG1]="[PROJECT NAME] Python App Project Name"
+    [Usage_EX_PRE]="# Generating Python App Project"
+    [Usage_EX]="${GEN_PY_PRO_TOOL} RCP"
 )
 
 declare -A GEN_PY_PRO_LOGGING=(
@@ -224,7 +224,7 @@ function __gen_py_pro {
         fi
         exit 0
     fi
-    usage GEN_PY_PRO_USAGE
+    usage GEN_PY_PRO_Usage
     exit 128
 }
 
