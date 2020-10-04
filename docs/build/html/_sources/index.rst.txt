@@ -7,7 +7,7 @@ Developed in `bash <https://en.wikipedia.org/wiki/Bash_(Unix_shell)>`_ code: **1
 
 |GitHub shell checker|
 
-.. |GitHub shell checker| image:: ttps://github.com/vroncevic/gen_py_pro/workflows/gen_py_pro%20shell%20checker/badge.svg
+.. |GitHub shell checker| image:: https://github.com/vroncevic/gen_py_pro/workflows/gen_py_pro%20shell%20checker/badge.svg
    :target: https://github.com/vroncevic/gen_py_pro/actions?query=workflow%3A%22gen_py_pro+shell+checker%22
 
 The README is used to introduce the tool and provide instructions on
