@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # @brief   Generate Python App Project
-# @version ver.1.0.0
+# @version ver.1.0
 # @date    Thu Feb 07 00:46:32 2016
 # @company None, free software to use 2016
 # @author  Vladimir Roncevic <elektron.ronca@gmail.com>
@@ -27,7 +27,7 @@ GEN_PY_PRO_CFG=${GEN_PY_PRO_HOME}/conf/${GEN_PY_PRO_TOOL}.cfg
 GEN_PY_PRO_UTIL_CFG=${GEN_PY_PRO_HOME}/conf/${GEN_PY_PRO_TOOL}_util.cfg
 GEN_PY_PRO_LOG=${GEN_PY_PRO_HOME}/log
 
-declare -A GEN_PY_PRO_Usage=(
+declare -A GEN_PY_PRO_USAGE=(
     [Usage_TOOL]="${GEN_PY_PRO_TOOL}"
     [Usage_ARG1]="[PROJECT NAME] Python App Project Name"
     [Usage_EX_PRE]="# Generating Python App Project"
@@ -203,8 +203,8 @@ function __gen_py_pro {
         do
             eval echo "${RL}" >> ${RF}
         done < ${RTF}
-        local USRID=${config_gen_py_pro_util[UID]}
-        local GRPID=${config_gen_py_pro_util[GID]}
+        local USRID=${config_gen_py_pro_util[USERID]}
+        local GRPID=${config_gen_py_pro_util[GROUPID]}
         MSG="Set owner!"
         info_debug_message "$MSG" "$FUNC" "$GEN_PY_PRO_TOOL"
         eval "chown -R ${USRID}.${GRPID} ${PN}/"
@@ -224,7 +224,7 @@ function __gen_py_pro {
         fi
         exit 0
     fi
-    usage GEN_PY_PRO_Usage
+    usage GEN_PY_PRO_USAGE
     exit 128
 }
 
