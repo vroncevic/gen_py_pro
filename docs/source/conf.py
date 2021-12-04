@@ -3,7 +3,7 @@
 project = u'gen_py_pro'
 copyright = u'2017, Vladimir Rocevic <elektron.ronca@gmail.com>'
 author = u'Vladimir Rocevic <elektron.ronca@gmail.com>'
-version = u'1.0'
+version = u'2.0'
 release = u'https://github.com/vroncevic/gen_py_pro/releases'
 extensions = []
 templates_path = ['_templates']

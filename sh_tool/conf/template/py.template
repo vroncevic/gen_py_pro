@@ -2,7 +2,7 @@ ${H}"!/usr/bin/env python"
 ${H}" -*- Mode: Python; coding: utf-8; indent-tabs-mode: t; c-basic-offset: 4; tab-width: 4 -*- "
 ${H}
 ${H}" ${PN}.py"
-${H}" Copyright (C) 2017 ${AN} ${AE}"
+${H}" Copyright (C) 2022 ${AN} ${AE}"
 ${H}
 ${H}" ${PN} is free software: you can redistribute it and/or modify it"
 ${H}" under the terms of the GNU General Public License as published by the"
