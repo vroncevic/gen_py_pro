@@ -1,6 +1,6 @@
-<img align="right" src="https://raw.githubusercontent.com/vroncevic/gen_py_pro/dev/docs/gen_py_pro_logo.png" width="25%">
-
 # Generate Python Project
+
+<img align="right" src="https://raw.githubusercontent.com/vroncevic/gen_py_pro/dev/docs/gen_py_pro_logo.png" width="25%">
 
 **gen_py_pro** is shell tool for generating Python project.
 
@@ -35,7 +35,7 @@ Navigate to release **[page](https://github.com/vroncevic/gen_py_pro/releases)**
 
 To install **gen_py_pro** type the following
 
-```
+```bash
 tar xvzf gen_py_pro-x.y.tar.gz
 cd gen_py_pro-x.y
 cp -R ~/sh_tool/bin/   /root/scripts/gen_py_pro/ver.x.y/
@@ -44,7 +44,8 @@ cp -R ~/sh_tool/log/   /root/scripts/gen_py_pro/ver.x.y/
 ```
 
 Self generated setup script and execution
-```
+
+```bash
 ./gen_py_pro_setup.sh
 
 [setup] installing App/Tool/Script gen_py_pro
@@ -88,7 +89,7 @@ Or You can use docker to create image/container.
 
 ### Usage
 
-```
+```bash
 # Create symlink for shell tool
 ln -s /root/scripts/gen_py_pro/ver.x.y/bin/gen_py_pro.sh /root/bin/gen_py_pro
 
@@ -190,7 +191,8 @@ RCP/
 **gen_py_pro** is based on MOP.
 
 Shell tool structure
-```
+
+```bash
 sh_tool/
 ├── bin/
 │   ├── center.sh
