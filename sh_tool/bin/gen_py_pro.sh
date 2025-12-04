@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # @brief   Generate Python App Project
-# @version ver.2.0
+# @version ver.3.0
 # @date    Sat 04 Dec 2021 08:55:43 AM CET
 # @company None, free software to use 2021
 # @author  Vladimir Roncevic <elektron.ronca@gmail.com>
@@ -19,20 +19,15 @@ UTIL_LOG=${UTIL}/log
 .    ${UTIL}/bin/load_conf.sh
 .    ${UTIL}/bin/load_util_conf.sh
 .    ${UTIL}/bin/progress_bar.sh
+.    ${UTIL}/bin/display_logo.sh
 
 GEN_PY_PRO_TOOL=gen_py_pro
-GEN_PY_PRO_VERSION=ver.2.0
+GEN_PY_PRO_VERSION=ver.3.0
 GEN_PY_PRO_HOME=${UTIL_ROOT}/${GEN_PY_PRO_TOOL}/${GEN_PY_PRO_VERSION}
 GEN_PY_PRO_CFG=${GEN_PY_PRO_HOME}/conf/${GEN_PY_PRO_TOOL}.cfg
 GEN_PY_PRO_UTIL_CFG=${GEN_PY_PRO_HOME}/conf/${GEN_PY_PRO_TOOL}_util.cfg
 GEN_PY_PRO_LOGO=${GEN_PY_PRO_HOME}/conf/${GEN_PY_PRO_TOOL}.logo
 GEN_PY_PRO_LOG=${GEN_PY_PRO_HOME}/log
-
-tabs 4
-CONSOLE_WIDTH=$(stty size | awk '{print $2}')
-
-.    ${GEN_PY_PRO_HOME}/bin/center.sh
-.    ${GEN_PY_PRO_HOME}/bin/display_logo.sh
 
 declare -A GEN_PY_PRO_USAGE=(
     [USAGE_TOOL]="${GEN_PY_PRO_TOOL}"
@@ -75,8 +70,8 @@ TOOL_NOTIFY="false"
 #
 function __gen_py_pro {
     local PN=$1
-    display_logo
     if [ -n "${PN}" ]; then
+        display_logo "vroncevic" "${GEN_PY_PRO_TOOL}" "${GEN_PY_PRO_VERSION}" "${GEN_PY_PRO_LOGO}"
         local FUNC=${FUNCNAME[0]} MSG="None"
         local STATUS_CONF STATUS_CONF_UTIL STATUS
         MSG="Loading basic and util configuration!"
